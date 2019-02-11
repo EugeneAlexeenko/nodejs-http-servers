@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
 
   req.on('end', () => {
     const receivedMessage = body.toString();
-    let template = fs.readFileSync('./index.html');
+    let template = fs.readFileSync(path.join(__dirname, 'index.html'));
 
     if (receivedMessage) {
       template = template.toString().replace(/{message}/, receivedMessage);
